@@ -94,8 +94,8 @@ static int mif_min_table[] = {
 };
 
 static gpu_attribute gpu_config_attributes[] = {
-	{GPU_MAX_CLOCK, 1146},
-	{GPU_MAX_CLOCK_LIMIT, 1146},
+	{GPU_MAX_CLOCK, 1300},
+	{GPU_MAX_CLOCK_LIMIT, 1300},
 	{GPU_MIN_CLOCK, 343},
 	{GPU_MIN_CLOCK_LIMIT, 343},
 	{GPU_DVFS_START_CLOCK, 343},
@@ -113,7 +113,7 @@ static gpu_attribute gpu_config_attributes[] = {
 	{GPU_GOVERNOR_TABLE_SIZE_INTERACTIVE, GPU_DVFS_TABLE_LIST_SIZE(gpu_dvfs_table_default)},
 	{GPU_GOVERNOR_TABLE_SIZE_STATIC, GPU_DVFS_TABLE_LIST_SIZE(gpu_dvfs_table_default)},
 	{GPU_GOVERNOR_TABLE_SIZE_BOOSTER, GPU_DVFS_TABLE_LIST_SIZE(gpu_dvfs_table_default)},
-	{GPU_GOVERNOR_INTERACTIVE_HIGHSPEED_CLOCK, 1146},
+	{GPU_GOVERNOR_INTERACTIVE_HIGHSPEED_CLOCK, 1300},
 	{GPU_GOVERNOR_INTERACTIVE_HIGHSPEED_LOAD, 95},
 	{GPU_GOVERNOR_INTERACTIVE_HIGHSPEED_DELAY, 0},
 	{GPU_DEFAULT_VOLTAGE, 800000},
@@ -342,9 +342,6 @@ static int gpu_enable_clock(struct exynos_context *platform)
 
 static int gpu_disable_clock(struct exynos_context *platform)
 {
-	GPU_LOG(DVFS_DEBUG, DUMMY, 0u, 0u, "%s: [vclk_g3d]\n", __func__);
-	clk_disable_unprepare(vclk_g3d);
-	return 0;
 }
 #endif
 

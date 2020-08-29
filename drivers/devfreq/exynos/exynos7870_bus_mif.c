@@ -234,12 +234,6 @@ static int exynos7870_devfreq_mif_init_freq_table(struct device *dev,
 	cur_freq = clk_get_rate(data->clk);
 	dev_info(dev, "current frequency: %uKhz\n", cur_freq);
 
-	for (i = 0; i < data->max_state; i++) {
-		if (data->opp_list[i].freq > data->max_freq ||
-			data->opp_list[i].freq < data->min_freq)
-			dev_pm_opp_disable(dev, (unsigned long)data->opp_list[i].freq);
-	}
-
 	return 0;
 }
 
